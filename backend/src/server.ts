@@ -11,6 +11,6 @@ const app = express();
 app.use(express.json());
 app.use(routes);
 
-app.use("/swagger", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 app.listen(8080, () => console.log("Server is running!"));

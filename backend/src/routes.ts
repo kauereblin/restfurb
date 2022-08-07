@@ -3,6 +3,8 @@ import UserController  from './controllers/UserController';
 import ItemController  from './controllers/ItemController';
 import OrderController from './controllers/OrderController';
 
+import { ensureAuth } from './middlewares/EnsureAuth';
+
 const routes = Router();
 
 routes.get   ('/RestAPIFurb/usuarios'    , UserController.index  );
@@ -15,10 +17,10 @@ routes.post  ('/RestAPIFurb/itens'    , ItemController.create );
 routes.put   ('/RestAPIFurb/itens/:id', ItemController.update );
 routes.delete('/RestAPIFurb/itens/:id', ItemController.destroy);
 
-routes.get   ('/RestAPIFurb/comandas'    , OrderController.index  );
-routes.get   ('/RestAPIFurb/comandas/:id', OrderController.show   );
-routes.post  ('/RestAPIFurb/comandas'    , OrderController.create );
-routes.put   ('/RestAPIFurb/comandas/:id', OrderController.update );
-routes.delete('/RestAPIFurb/comandas/:id', OrderController.destroy);
+routes.get   ('/RestAPIFurb/comandas'    , ensureAuth, OrderController.index  );
+routes.get   ('/RestAPIFurb/comandas/:id', ensureAuth, OrderController.show   );
+routes.post  ('/RestAPIFurb/comandas'    , ensureAuth, OrderController.create );
+routes.put   ('/RestAPIFurb/comandas/:id', ensureAuth, OrderController.update );
+routes.delete('/RestAPIFurb/comandas/:id', ensureAuth, OrderController.destroy);
 
 export default routes;

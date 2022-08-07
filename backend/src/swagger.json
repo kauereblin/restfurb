@@ -4,11 +4,16 @@
         "version": "1.0.0",
         "title": "restfurb",
         "description": "API desenvolvida para prova de suficiência da disciplina de PWII na instituição FURB",
+        "externalDocs": {
+            "description": "github",
+            "url": "https://github.com/kauereblin/restfurb"
+        },
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
         }
     },
+    "basePath": "/RestAPIFurb",
     "paths": {
         "/RestAPIFurb/usuarios": {
             "get": {
@@ -262,6 +267,7 @@
         },
         "/RestAPIFurb/comandas": {
             "get": {
+                "security": [{ "bearerAuth": [] }],
                 "tags": ["Comandas"],
                 "summary": "Buscar todas comandas",
                 "responses": {
@@ -273,10 +279,14 @@
                     },
                     "400": {
                         "description": "Requisição comprometida"
+                    },
+                    "401": {
+                        "description": "Rota não autorizada"
                     }
                 }
             },
             "post": {
+                "security": [{ "bearerAuth": [] }],
                 "tags": ["Comandas"],
                 "summary": "Criar uma comanda",
                 "requestBody": {
@@ -302,12 +312,16 @@
                     },
                     "400": {
                         "description": "Requisição comprometida"
+                    },
+                    "401": {
+                        "description": "Rota não autorizada"
                     }
                 }
             }
         },
         "/RestAPIFurb/comandas/{id}": {
             "get": {
+                "security": [{ "bearerAuth": [] }],
                 "tags": ["Comandas"],
                 "summary": "Buscar uma comanda",
                 "parameters": [
@@ -328,10 +342,14 @@
                     },
                     "400": {
                         "description": "Requisição comprometida"
+                    },
+                    "401": {
+                        "description": "Rota não autorizada"
                     }
                 }
             },
             "put": {
+                "security": [{ "bearerAuth": [] }],
                 "tags": ["Comandas"],
                 "summary": "Alterar uma comanda",
                 "parameters": [
@@ -366,10 +384,14 @@
                     },
                     "400": {
                         "description": "Requisição comprometida"
+                    },
+                    "401": {
+                        "description": "Rota não autorizada"
                     }
                 }
             },
             "delete": {
+                "security": [{ "bearerAuth": [] }],
                 "tags": ["Comandas"],
                 "summary": "Remover um produto",
                 "parameters": [
@@ -393,6 +415,9 @@
                     },
                     "400": {
                         "description": "Requisição comprometida"
+                    },
+                    "401": {
+                        "description": "Rota não autorizada"
                     }
                 }
             }
@@ -439,10 +464,10 @@
                     "id": {
                         "type": "integer"
                     },
-                    "name": {
+                    "nome": {
                         "type": "string"
                     },
-                    "price": {
+                    "preco": {
                         "type": "number"
                     }
                 }
@@ -499,6 +524,13 @@
                         }
                     }
                 }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
             }
         }
     }
