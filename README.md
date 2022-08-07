@@ -19,6 +19,7 @@ Run this code to run the migration in backend directory
 ### Run dev application
 
 Run this code in backend directory
+
 ```npm start```
 
 <br>
