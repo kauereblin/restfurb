@@ -1,0 +1,505 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "version": "1.0.0",
+        "title": "restfurb",
+        "description": "API desenvolvida para prova de suficiência da disciplina de PWII na instituição FURB",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "paths": {
+        "/RestAPIFurb/usuarios": {
+            "get": {
+                "tags": ["Usuário"],
+                "summary": "Buscar todos usuários",
+                "responses": {
+                    "200": {
+                        "description": "Usuários buscados",
+                        "schema": {
+                            "$ref": "#/components/schemas/Users"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    },
+                    "501": {
+                        "description": "Não implementado"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Usuário"],
+                "summary": "Criar um usuário",
+                "requestBody": {
+                    "description": "Objeto de Usuário",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Usuário criado",
+                        "schema": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    },
+                    "501": {
+                        "description": "Não implementado"
+                    }
+                }
+            }
+        },
+        "/RestAPIFurb/usuarios/{id}": {
+            "put": {
+                "tags": ["Usuário"],
+                "summary": "Alterar um usuário",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Número identificador do usuário a ser alterado",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Objeto de Usuário",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Usuário alterado",
+                        "schema": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    },
+                    "501": {
+                        "description": "Não implementado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Usuário"],
+                "summary": "Remover um usuário",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Número identificador do usuário a ser removido",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuário deletado",
+                        "schema": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    },
+                    "501": {
+                        "description": "Não implementado"
+                    }
+                }
+            }
+        },
+        "/RestAPIFurb/itens": {
+            "get": {
+                "tags": ["Produtos"],
+                "summary": "Buscar todos produtos",
+                "responses": {
+                    "200": {
+                        "description": "Produtos buscados",
+                        "schema": {
+                            "$ref": "#/components/schemas/Items"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    },
+                    "501": {
+                        "description": "Não implementado"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Produtos"],
+                "summary": "Criar um produto",
+                "requestBody": {
+                    "description": "Objeto de Produto",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Item"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Produto criado",
+                        "schema": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    },
+                    "501": {
+                        "description": "Não implementado"
+                    }
+                }
+            }
+        },
+        "/RestAPIFurb/itens/{id}": {
+            "put": {
+                "tags": ["Produtos"],
+                "summary": "Alterar um produto",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Número identificador do produto a ser alterado",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Objeto de Produto",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Item"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Produto alterado",
+                        "schema": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    },
+                    "501": {
+                        "description": "Não implementado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Produtos"],
+                "summary": "Remover um produto",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Número identificador do produto a ser removido",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Produto deletado",
+                        "schema": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    },
+                    "501": {
+                        "description": "Não implementado"
+                    }
+                }
+            }
+        },
+        "/RestAPIFurb/comandas": {
+            "get": {
+                "tags": ["Comandas"],
+                "summary": "Buscar todas comandas",
+                "responses": {
+                    "200": {
+                        "description": "Comandas buscadas",
+                        "schema": {
+                            "$ref": "#/components/schemas/Orders"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Comandas"],
+                "summary": "Criar uma comanda",
+                "requestBody": {
+                    "description": "Objeto de Comanda",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Order"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Comanda criada",
+                        "schema": {
+                            "$ref": "#/components/schemas/Order"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    }
+                }
+            }
+        },
+        "/RestAPIFurb/comandas/{id}": {
+            "get": {
+                "tags": ["Comandas"],
+                "summary": "Buscar uma comanda",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Número identificador da comanda a ser buscada",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Comanda buscada",
+                        "schema": {
+                            "$ref": "#/components/schemas/Order"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Comandas"],
+                "summary": "Alterar uma comanda",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Número identificador da comanda a ser alterado",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Objeto de Produto a ser adicionado na comanda",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Produtos"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Comanda alterada",
+                        "schema": {
+                            "$ref": "#/components/schemas/Order"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Comandas"],
+                "summary": "Remover um produto",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Número identificador do produto a ser removido",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Produto deletado",
+                        "schema": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição comprometida"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Users": {
+                "type": "object",
+                "properties": {
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    }
+                }
+            },
+            "Item": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    }
+                }
+            },
+            "IncludeItem": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Items": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    }
+                }
+            },
+            "Order": {
+                "type": "object",
+                "properties": {
+                    "idUsuario": {
+                        "type": "integer"
+                    },
+                    "nomeUsuario": {
+                        "type": "string"
+                    },
+                    "telefoneUsuario": {
+                        "type": "string"
+                    },
+                    "produtos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IncludeItem"
+                        }
+                    }
+                }
+            },
+            "Orders": {
+                "type": "object",
+                "properties": {
+                    "orders": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Order"
+                        }
+                    }
+                }
+            },
+            "Produtos": {
+                "type": "object",
+                "properties": {
+                    "produtos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IncludeItem"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
